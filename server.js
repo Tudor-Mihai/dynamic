@@ -5,7 +5,7 @@ import { Server } from "socket.io";
 import db from "./db/db.js";
 
 const app = express();
-const PORT = 3002;
+const PORT = 3005;
 app.use(cors());
 app.use(express.json());
 
@@ -47,6 +47,10 @@ app.post("/api/insert", (req, res) => {
       res.send(result);
     }
   );
+});
+
+app.get("/", (req, res) => {
+  res.send({ message: "success" });
 });
 
 server.listen(PORT, () => {
